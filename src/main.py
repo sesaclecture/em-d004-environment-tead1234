@@ -30,7 +30,7 @@ def make_ssh_command(user, host):
 # 비밀번호 없는 SSH 접속을 준비하기 위한
 # keygen 명령어를 반환해야 합니다.
 def make_ssh_keygen_command(key_path):
-    return f"ssh-keygen -t -f ed25512 {key_path}"
+    return f"ssh-keygen -t ed25519 -f {key_path}"
 
 
 # 문제 4.
