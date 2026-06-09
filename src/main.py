@@ -8,7 +8,7 @@
 # SSH, SCP, SFTP 명령어에서 공통으로 사용하는
 # 접속 대상 형식을 반환해야 합니다.
 def make_ssh_target(user, host):
-    raise NotImplementedError
+    return f"{user}@{host}"
 
 
 # 문제 2.
@@ -18,7 +18,7 @@ def make_ssh_target(user, host):
 # user와 host 정보를 이용하여
 # 원격 장비에 터미널로 접속하기 위한 명령어를 반환해야 합니다.
 def make_ssh_command(user, host):
-    raise NotImplementedError
+    return f"ssh {user}@{host}"
 
 
 # 문제 3.
@@ -30,7 +30,7 @@ def make_ssh_command(user, host):
 # 비밀번호 없는 SSH 접속을 준비하기 위한
 # keygen 명령어를 반환해야 합니다.
 def make_ssh_keygen_command(key_path):
-    raise NotImplementedError
+    return f"ssh-keygen -t -f ed25512 {key_path}"
 
 
 # 문제 4.
@@ -43,7 +43,7 @@ def make_ssh_keygen_command(key_path):
 #
 # 호스트 PC의 파일을 원격 장비로 복사하는 명령어를 반환해야 합니다.
 def make_scp_upload_command(local_path, user, host, remote_path):
-    raise NotImplementedError
+    return f"scp {local_path} {user}@{host}:{remote_path}"
 
 
 # 문제 5.
@@ -57,4 +57,4 @@ def make_scp_upload_command(local_path, user, host, remote_path):
 # 강의 시간에 사용한 SSH 압축 및
 # Trusted X11 Forwarding 옵션을 포함하세요.
 def make_x11_ssh_command(user, host):
-    raise NotImplementedError
+    return f"ssh -C -Y {user}@{host}"
